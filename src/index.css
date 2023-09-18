@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Inclusive+Sans&family=Poppins:wght@300;500&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+p{
+    font-family: 'Inclusive Sans', sans-serif;
+    font-weight: 400;
+}
+h1, h2, h3, h4, h5{
+    font-family: 'Poppins', sans-serif;
+}
+@media screen and (max-width: 640px) {
+    .home{
+        padding: 0 20px;
+    }
+    .upper{
+        width: fit-content;
+        margin: auto;
+        display: block;
+    }
+    .links{
+        display: none;
+    }
+}
+/* @media screen and (min-width: 460px) {
+    .navbar{
+        flex-direction: column;
+    }
+} */
+@media screen and (max-width: 640px) {
+    .project-card > div:nth-child(2){
+        padding: 10px 15px;
+    }
+    .project-card{
+        margin: 1rem 0;
+    }
+}
+/* @media screen and (max-width: 640px) {
+    .project{
+        margin: 15px 0;
+    }
+} */
