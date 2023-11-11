@@ -48,7 +48,7 @@ const ProjectCard = ({ project }) => {
             className="flex items-center border border-black px-4 py-2 w-fit rounded-md mr-2 hover:bg-black hover:text-white transition-all"
           >
             <span className="mr-2 text-2xl">{<AiFillGithub />}</span>
-            <span>Demo</span>
+            <span>Source code</span>
           </Link>
         </div>
       </div>
