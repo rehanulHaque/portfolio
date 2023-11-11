@@ -1,24 +1,59 @@
-import React from 'react'
-import TagComp from '../HomeComponents/TagComp'
-import ButtonComp from './ButtonComp'
+import React from "react";
+import { SlCalender } from "react-icons/sl";
+import { BsPlayFill } from "react-icons/bs";
+import { AiFillGithub } from "react-icons/ai";
+import { Link } from "react-router-dom";
 
-const ProjectCard = ({portfolio}) => {
+const ProjectCard = ({ project }) => {
   return (
-    <div className='shadow-lg project-card'>
-        <div>
-            <img src={portfolio.imgSrc} alt="Project" className='lg:w-fit'/>
-        </div>
-        <div className='lg:p-4 md:p-3 sm:p-2'>
-            <h2 className='lg:text-2xl md:text-2xl sm:text-xl lg:mb-2'>{portfolio.title}</h2>
-            <p className='flex items-center text-gray-600'><span className='mr-2'>{portfolio.date.icon}</span><span>{portfolio.date.datetime}</span></p>
+    <div className="shadow-lg project-card">
+      <div>
+        <img
+          src={project.projectImage.url}
+          alt="Project"
+          className="lg:w-fit transition-all hover:scale-95"
+        />
+      </div>
+      <div className="lg:p-4 md:p-3 sm:p-2">
+        <h2 className="lg:text-2xl md:text-2xl sm:text-xl lg:mb-2">
+          {project.title}
+        </h2>
+        <p className="flex items-center text-gray-600">
+          <span className="mr-2">{<SlCalender />}</span>
+          <span>{project.date}</span>
+        </p>
 
-            <p className='lg:mb-2'>{portfolio.summary}</p>
+        <p className="lg:mb-2">{project.description}</p>
 
-            <div className='mb-8'>{portfolio.tags.map(tag=> <TagComp key={tag.id} {...tag}/>)}</div>
-            <div className='flex'>{portfolio.buttons.map(btn=> <ButtonComp key={btn.id} {...btn}/>)}</div>
+        <div className="mb-8">
+          {project.tags.map((tag, idx) =>(
+            <div className='px-4 py-2 bg-gray-200 text-black w-fit text-xs rounded-md mr-2 whitespace-nowrap inline' key={idx}>
+            {tag}
         </div>
+          ))}
+        </div>
+        <div className="flex">
+          <Link
+            target="_blank"
+            to={project.demoLink}
+            className="flex items-center border border-black px-4 py-2 w-fit rounded-md mr-2 hover:bg-black hover:text-white transition-all"
+          >
+            <span className="mr-2 text-2xl">{<BsPlayFill />}</span>
+            <span>Demo</span>
+          </Link>
+
+          <Link
+            target="_blank"
+            to={project.sourceCode}
+            className="flex items-center border border-black px-4 py-2 w-fit rounded-md mr-2 hover:bg-black hover:text-white transition-all"
+          >
+            <span className="mr-2 text-2xl">{<AiFillGithub />}</span>
+            <span>Demo</span>
+          </Link>
+        </div>
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default ProjectCard
+export default ProjectCard;
